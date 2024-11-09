@@ -1,0 +1,43 @@
+type RequestID = 
+ record {
+   patientBirthDate: text;
+   patientFullName: text;
+ };
+type RequestDate = 
+ record {
+   date: text;
+   patientBirthDate: text;
+   patientFullName: text;
+ };
+type Record = 
+ record {
+   patientAge: nat;
+   patientBirthDate: text;
+   patientDiagnosis: text;
+   patientFullName: text;
+ };
+type GetSingleData = 
+ record {
+   patientAge: nat;
+   patientBirthDate: text;
+   patientDiagnosis: text;
+   patientFullName: text;
+ };
+type GetAllData = 
+ vec record {
+       Date;
+       Record;
+     };
+type Fields = 
+ record {
+   patientBirthDate: text;
+   patientDiagnosis: text;
+   patientFullName: text;
+ };
+type Date = text;
+service : {
+  ActualDate: () -> (text) query;
+  GetDataByDate: (RequestDate) -> (opt GetSingleData) query;
+  GetMedicalData: (RequestID) -> (opt GetAllData) query;
+  updateMedicalData: (Fields) -> (text);
+}
