@@ -1,0 +1,9 @@
+type PreRecibo = 
+ record {
+   descripcion: text;
+   matricula: text;
+   tipo: nat;
+ };
+service : {
+  GenerarTransaccion: (PreRecibo) -> (text);
+}

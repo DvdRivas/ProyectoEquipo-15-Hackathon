@@ -1,0 +1,32 @@
+type PreRecibo = 
+ record {
+   descripcion: text;
+   matricula: text;
+   tipo: nat;
+ };
+type MatriculaRequest = 
+ record {
+   carrera: text;
+   generacion: nat;
+   nombreCompleto: text;
+ };
+type GRequest = 
+ record {
+   alumnos: vec nat;
+   carrera: text;
+   materias: vec text;
+   numeroGrupo: text;
+ };
+type Alumno = 
+ record {
+   carrera: text;
+   historial: vec text;
+   nombreCompleto: text;
+   promedio: nat;
+ };
+service : {
+  CrearGrupo: (GRequest) -> (text);
+  GenerarMatricula: (MatriculaRequest) -> (text);
+  InfoAlumno: (text) -> (opt Alumno) query;
+  Transaccion: (PreRecibo) -> (text);
+}

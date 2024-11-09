@@ -1,0 +1,10 @@
+type Alumno = 
+ record {
+   carrera: text;
+   historial: vec text;
+   nombreCompleto: text;
+   promedio: nat;
+ };
+service : {
+  InformacionDelAlumno: (text) -> (opt Alumno);
+}
